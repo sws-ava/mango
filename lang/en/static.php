@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'ourMenu' => 'Our menu',
+    'interior' => 'Interior',
+    'lookAll' => 'Look all',
+    'siteName' => "Mango",
+    'newsTitle' => "News",
+    'salesTitle' => "Promotions",
+    'galleryTitle' => "Gallery",
+    'interiorTitle' => "Interior",
+    'menuTitle' => "Menu",
+    'addressName' => "Address",
+    'phones' => "Phones",
+    'opened' => "Working hours",
+    'socs' => "Social networks",
+    'to_site' => 'To the site',
+    'page_not_found' => 'Page not found',
+    'locale' => 'en',
+    'yourOrder' => 'Your order:',
+    'orderSum' => 'Total:',
+    'toDesignOrder' => 'To place an order',
+    'orderName' => 'Name',
+    'orderPhone' => 'Phone',
+    'orderAddress' => 'Address',
+    'orderPersons' => 'Persons',
+    'orderComment' => 'Comment on the order',
+    'orderNow' => 'Place an order',
+    'orderEpmty' => 'List is empty',
+    'toMenu' => 'To the menu',
+    'orderGet' => "Thank you for your order! <br> If it is not confirmed by your phone within 15 minutes, <br> please call:"
+];
