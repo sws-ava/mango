@@ -66,11 +66,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/', [PageController::class, 'main_page']);
     Route::get('/menu', [PageController::class, 'menu']);
     Route::get('/delivery', [PageController::class, 'delivery']);
-    Route::get('/concept', [PageController::class, 'conception']);
-    Route::get('/contacts', [PageController::class, 'contacts']);
+    Route::get('/conception', [PageController::class, 'conception']);
+    Route::get('/contact', [PageController::class, 'contacts']);
     Route::get('/gallery', [PageController::class, 'gallery']);
     Route::get('/interior', [PageController::class, 'interior']);
-    Route::get('/promotions', [PageController::class, 'promotions']);
+    Route::get('/aktsii', [PageController::class, 'promotions']);
     Route::get('/news', [PageController::class, 'news']);
     Route::get('/cart', [CartController::class, 'index']);
 //

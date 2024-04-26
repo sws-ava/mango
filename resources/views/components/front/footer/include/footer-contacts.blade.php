@@ -1,94 +1,75 @@
-
-<section class="section-top-50 section-sm-top-70 text-center text-sm-left">
-    <div class="shell">
-        <h3 class="text-center">
-            @lang('navigation.contacts')
-        </h3>
-        <div class="range range-xs-center offset-top-34">
-            <div class="cell-sm-6">
-                <div class="range">
-                    <div class="cell-sm-12 text-center text-sm-left offset-top-110">
-                        <div class="unit unit-sm-horizontal unit-spacing-xs unit-sm-bottom">
-                            <div class="unit-left min-width-sm">
-                                <span class="h6 text-regular">
-                                    @lang('static.addressName'):
-								</span>
-                            </div>
-                            <div class="unit-body"><a href="#" class="text-base">
-                                    {{ $translates['address']}}
-                                </a>
-                            </div>
-                            <div class="unit-body">
-                                <a
-                                    v-html="$t('static.address')"
-                                    href="#"
-                                    class="text-base">
-
-                                </a></div>
-                        </div>
-                        <div class="unit unit-sm-horizontal unit-spacing-xs unit-sm-bottom offset-top-12">
-                            <div class="unit-left min-width-sm">
-                                <span class="h6 text-regular">
-                                    @lang('static.phones'):
-                                </span>
-                            </div>
-                            <div class="unit-body">
-                                <a
-                                    href="tel:{{ $translates['phone1full']}}"
-                                    class="text-base"
-                                >
-                                    {{ $translates['phone1']}}
-
-                                </a>,
-                                <a
-                                    href="tel:{{ $translates['phone2full']}}"
-                                    class="text-base"
-                                >
-                                    {{ $translates['phone2']}}
-
-                                </a>
+<section id="titlelink" class="bg-gray-darkest">
+    <div class="context-dark">
+        <!-- RD Parallax-->
+        <div data-on="false" data-md-on="true" class="rd-parallax">
+            <div data-speed="0.35" data-type="media" data-url="{{asset('images/image-03-1920x1018.jpg')}}"
+                 class="rd-parallax-layer"></div>
+            <div data-speed="0" data-type="html" class="rd-parallax-layer">
+                <div id="contact" class="shell section-98 section-110">
+                    <h1><span class="reveal-block font-accent big">
+                            @lang('navigation.contacts')
+                        </span>
+                        <span class="reveal-block offset-top-4 h4 text-light text-uppercase">
+                            @lang('static.howFindUs')
+                        </span>
+                    </h1>
+                    <hr class="divider bg-mantis offset-top-30">
+                    <div class="range offset-top-66">
+                        <div class="cell-md-8 cell-lg-6">
+                            <div class="inset-lg-right-20">
+                                <!-- Post Event-->
+                                <article class="post post-classic">
+                                    <!-- Post media-->
+                                    <header class="post-media">
+                                        <div data-photo-swipe="gallery"><a class="thumbnail-classic">
+                                                <figure>
+                                                    <img
+                                                        width="553" height="320"
+                                                        src="{{asset('images/post-01-553x320.jpg')}}"
+                                                        alt=""
+                                                    />
+                                                </figure>
+                                            </a>
+                                        </div>
+                                    </header>
+                                </article>
                             </div>
                         </div>
-                        <div class="unit unit-sm-horizontal unit-spacing-xs unit-sm-bottom offset-top-12">
-                            <div class="unit-left min-width-sm"><span class="h6 text-regular">E-mail:</span></div>
-                            <div class="unit-body">
-                                {{ $translates['email']}}
-                            </div>
-                        </div>
-                        <div class="unit unit-sm-horizontal unit-spacing-xs unit-sm-bottom offset-top-12">
-                            <div class="unit-left min-width-sm">
-                                <span class="h6 text-regular">
-                                    @lang('static.opened'):
-                                </span>
-                            </div>
-                            <div class="unit-body">
-                                {{ $translates['workHours']}}
-                            </div>
-                        </div>
-                        <div class="unit unit-sm-horizontal unit-spacing-xs unit-sm-bottom offset-top-12">
-                            <div class="unit-left min-width-sm">
-                                <span class="h6 text-regular">
-                                    @lang('static.socs'):
-                                </span>
-                            </div>
-                            <div class="unit-body">
-                                <a target="_blank" style="padding-left: 2em;" href="https://www.facebook.com/krabisushicafe/">
-                                    <span class="icon icon-sm mdi mdi-facebook"></span>
-                                </a>
-                                <a target="_blank" style="padding-left: 2em;" href="https://www.instagram.com/krabicafe/">
-                                    <span class="icon icon-sm mdi mdi-instagram"></span>
-                                </a>
+                        <div class="cell-md-8 cell-lg-6 offset-top-41 offset-lg-top-0">
+                            <div class="inset-lg-left-20">
+                                <hr class="hr bg-gray-darker">
+                                <!-- Post Event-->
+                                <article class="post post-classic">
+                                    <!-- Post media-->
+                                    <!-- Post content-->
+                                    <h3 class="font-accent"><span class="big"><span
+                                                style="font-size: 1.5em;">Mango</span><br>Japanese & Thai cafe</span>
+                                    </h3>
+                                    <div class="group">
+                                        <div class="group-item reveal-block"><span
+                                                class="icon icon-xxs mdi mdi-navigation text-middle"></span> <span
+                                                class="text-middle">{{ $translates['address']}}</span>
+                                        </div>
+                                        <div class="group-item"><span
+                                                class="icon icon-xxs mdi mdi-clock text-middle"></span> <span
+                                                class="text-middle">{{ $translates['workHours']}}</span>
+                                        </div>
+                                        <br>
+                                        <div class="group-item"><span
+                                                class="icon icon-xxs mdi mdi-phone text-middle"></span> <span
+                                                class="text-middle">
+                                                <a href="tel:{{ $translates['phone1full']}}">{{ $translates['phone1']}}</a>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="tel:{{ $translates['phone2full']}}">{{ $translates['phone2']}}</a></span>
+                                        </div>
+                                    </div>
+                                </article>
+                                <br>
+                                <hr class="hr bg-gray-darker">
+                                <!-- Post Event-->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="cell-sm-6">
-                <div class="img-wrap-1"><img src="{{asset('/images/cont.jpg')}}">
-                </div>
-            </div>
-            <div class="cell-xs-12 offset-top-42">
-                <hr class="hr-sealine-gray">
             </div>
         </div>
     </div>

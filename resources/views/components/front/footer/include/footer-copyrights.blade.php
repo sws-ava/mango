@@ -1,9 +1,6 @@
-<div class="cell-xs-12 offset-top-42">
-    <hr class="hr-gray hr-fullwidth">
-</div>
-<section style="margin-bottom: 30px;" class="copyright offset-top-30 offset-md-top-42">
-    <div class="shell">
-        <p onclick="clearLocalStorage()" class="pull-sm-center">© Sushi-Mango 2019 - {{ date("Y") }}</p>
+<footer class="section-relative section-top-66 section-bottom-34 page-footer bg-gray-base context-dark">
+    <div class="shell offset-top-50">
+        <p class="small text-darker">© Sushi-Mango 2015-{{ date("Y") }}</p>
     </div>
     <script>
         function clearLocalStorage(){
@@ -15,4 +12,4 @@
             localStorage.setItem('cartList', '[]')
         }
     </script>
-</section>
+</footer>

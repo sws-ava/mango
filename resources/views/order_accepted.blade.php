@@ -3,8 +3,8 @@
 {{--TODO--}}
 @section('title') Cart @endsection
 @section('description') Description @endsection
+@section('pageId'){{ $page->id }}@endsection
 
-@section('banner')
 
 @section('content')
 

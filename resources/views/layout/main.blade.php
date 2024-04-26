@@ -2,110 +2,106 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//RU">
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="robots" content="{{env('APP_INDEX')}}">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('/apple-icon-57x57.png')}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('/apple-icon-60x60.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('/apple-icon-72x72.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/apple-icon-76x76.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('/apple-icon-114x114.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('/apple-icon-120x120.png')}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('/apple-icon-144x144.png')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('/apple-icon-152x152.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/apple-icon-180x180.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{asset('/android-icon-192x192.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('/favicon-96x96.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/favicon-16x16.png')}}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <title>@yield('title') | {{ env('APP_NAME', '') }}</title>
+    <meta name="robots" content="{{ env('APP_INDEX', 'noindex, nofollow') }}">
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-
-    <title>@yield('title') | @lang('static.siteName')</title>
     <meta name="description" content="@yield('description')">
-
+    <meta name="keywords" content="@yield('$keywords')">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Dancing+Script:700|Oswald:300,400,600,700,900">
     <link rel="stylesheet" href="{{asset('/css/style.css')}}" type="text/css">
-    <!-- <script type="text/javascript" src="/jscript.js"></script-->
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-
-    <style>
-        /* these styles are for the demo, but are not required for the plugin */
-        .zoom {
-            display:inline-block;
-            position: relative;
-        }
-
-        /* magnifying glass icon */
-        .zoom:after {
-            content:'';
-            display:block;
-            width:33px;
-            height:33px;
-            position:absolute;
-            top:0;
-            right:0;
-            background:url(icon.png);
-        }
-
-        .zoom img {
-            display: block;
-        }
-        .menudiv {margin-bottom:30px;}
-        .zoom img::selection { background-color: transparent; }
-
-        #ex2 img:hover { cursor: url(grab.cur), default; }
-        #ex2 img:active { cursor: url(grabbed.cur), default; }
-    </style>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139426372-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-139426372-1');
-    </script>
-
-
 </head>
 
 
 <body>
-<!-- Page-->
-<div class="page text-center">
-    <!-- Page Header-->
 
-    @include('components.front.header.header')
-    @include('components.front.header.include.cartBlock')
+    <div class="page text-center">
+        @include('components.front.header.header')
+        @include('components.front.header.include.cartBlock')
+
+        <main class="page-content clearfix">
+            <section class="context-dark">
+                <div data-on="false" data-md-on="true" class="rd-parallax">
+                    <div data-speed="0.45"
+                         data-type="media"
+                         data-url="
+                         @if(isset($page->slug))
+                            @if($page->slug == 'main')
+                                {{asset('images/intro-01-1920x955.jpg')}}
+                            @else
+                                {{asset('images/preview/'.$page->slug.'.jpg')}}
+                            @endif
+                        @else
+                            {{asset('images/intro-01-1920x955.jpg')}}
+                        @endif
+
+                        "
+                         class="rd-parallax-layer">
+                    </div>
+                    <div data-speed="0.3" data-type="html" data-fade="true" class="rd-parallax-layer">
+                        <div class="shell">
+                            <div class="section-110 section-cover range range-xs-center range-xs-middle">
+                                <div class="cell-md-8">
+                                    <h1 class="font-accent">
+                                        <span class="big">
+                                            Cafe
+                                            <span style="font-size: 1.6em;">Mango</span>
+                                            Japanese &amp; Thai
+                                        </span>
+                                    </h1>
+                                    <div class="group">
+                                        <div class="group-item reveal-block"><span class="icon icon-xxs mdi mdi-navigation text-middle"></span>
+                                            <span class="text-middle">
+                                                <a href="#" data-custom-scroll-to="gmap">{{ $translates['address']}}</a>
+                                            </span>
+                                        </div>
+                                        <div class="group-item">
+                                            <span class="icon icon-xxs mdi mdi-clock text-middle"></span>
+                                            <span class="text-middle">{{ $translates['workHours']}}</span>
+                                        </div>
+                                        <div class="group-item">
+                                            <span class="icon icon-xxs mdi mdi-phone text-middle"></span>
+                                            <span class="text-middle">
+                                                <a href="tel:{{ $translates['phone1full']}}">{{ $translates['phone1']}}</a>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="tel:{{ $translates['phone2full']}}">{{ $translates['phone2']}}</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="offset-top-24 big reveal-sm-block">
+                                        @lang('static.allPagesSubTitle')
+                                    </p>
+                                    @if(isset($page->id))
+                                        <div class="group offset-top-50">
+                                            <a href="#" data-custom-scroll-to="titlelink" class="btn btn-lg btn-primary">
+                                                @if($page->id == 1)
+                                                    @lang('static.moreAboutUs')
+                                                @else
+                                                    @yield('title')
+                                                @endif
+                                            </a>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @yield('content')
+
+        </main>
+
+        @include('components.front.footer.footer')
 
 
+    </div>
 
-    @yield('banner')
-
-
-    <main>
-        @yield('content')
-    </main>
-
-
-
-
-
-
-
-
-    <div style="clear: both;"></div>
-
-
-    @include('components.front.footer.footer')
-
-</div>
 
 <!-- Global Mailform Output-->
 <div id="form-output-global" class="snackbars"></div>
@@ -202,6 +198,5 @@
 
 
 
-</div>
 </body>
 </html>

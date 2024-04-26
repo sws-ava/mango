@@ -19,7 +19,7 @@ class PageService
         $description = 'description_'.App::getLocale();
         $content = 'content_'.App::getLocale();
 
-        $page = Page::select($title, $description, $content)->find($id);
+        $page = Page::select('id', 'slug', $title, $description, $content)->find($id);
 
         $page->title = $page[$title];
         $page->description = $page[$description];

@@ -22,24 +22,24 @@
         <form method="POST" action="{{ route('page.update', $page->id) }}" >
             @csrf
             <div class="row">
-                <div class="form-group col-lg-6">
-                    <small class="form-text text-muted">Название страницы на болгарском</small>
-                    <input
-                        name="title_bg"
-                        value="{{$page->title_bg}}"
-                        class="form-control"
-                        type="text"
-                    >
-                </div>
-                <div class="form-group col-lg-6">
-                    <small class="form-text text-muted">Название страницы на английском</small>
-                    <input
-                        name="title_en"
-                        value="{{$page->title_en}}"
-                        class="form-control"
-                        type="text"
-                    >
-                </div>
+{{--                <div class="form-group col-lg-6">--}}
+{{--                    <small class="form-text text-muted">Название страницы на болгарском</small>--}}
+{{--                    <input--}}
+{{--                        name="title_bg"--}}
+{{--                        value="{{$page->title_bg}}"--}}
+{{--                        class="form-control"--}}
+{{--                        type="text"--}}
+{{--                    >--}}
+{{--                </div>--}}
+{{--                <div class="form-group col-lg-6">--}}
+{{--                    <small class="form-text text-muted">Название страницы на английском</small>--}}
+{{--                    <input--}}
+{{--                        name="title_en"--}}
+{{--                        value="{{$page->title_en}}"--}}
+{{--                        class="form-control"--}}
+{{--                        type="text"--}}
+{{--                    >--}}
+{{--                </div>--}}
                 <div class="form-group col-lg-6">
                     <small class="form-text text-muted">Название страницы на украинском</small>
                     <input
@@ -94,22 +94,22 @@
 {{--                        type="text"--}}
 {{--                    >--}}
 {{--                </div>--}}
-                <div class="form-group col-lg-12">
-                    <small class="form-text text-muted">Контент страницы на болгарском </small>
-                    <textarea
-                        name="content_bg"
-                        class="form-control"
-                        style="min-height: 600px;"
-                    >{{$page->content_bg}}</textarea>
-                </div>
-                <div class="form-group col-lg-12">
-                    <small class="form-text text-muted">Контент страницы на английском </small>
-                    <textarea
-                        name="content_en"
-                        class="form-control"
-                        style="min-height: 600px;"
-                    >{{$page->content_en}}</textarea>
-                </div>
+{{--                <div class="form-group col-lg-12">--}}
+{{--                    <small class="form-text text-muted">Контент страницы на болгарском </small>--}}
+{{--                    <textarea--}}
+{{--                        name="content_bg"--}}
+{{--                        class="form-control"--}}
+{{--                        style="min-height: 600px;"--}}
+{{--                    >{{$page->content_bg}}</textarea>--}}
+{{--                </div>--}}
+{{--                <div class="form-group col-lg-12">--}}
+{{--                    <small class="form-text text-muted">Контент страницы на английском </small>--}}
+{{--                    <textarea--}}
+{{--                        name="content_en"--}}
+{{--                        class="form-control"--}}
+{{--                        style="min-height: 600px;"--}}
+{{--                    >{{$page->content_en}}</textarea>--}}
+{{--                </div>--}}
                 <div class="form-group col-lg-12">
                     <small class="form-text text-muted">Контент страницы на русском </small>
                     <textarea
