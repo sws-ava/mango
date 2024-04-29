@@ -59,12 +59,10 @@ class PageController extends Controller
 
         return view('conception', compact('translates', 'page'));
     }
-    public function gallery() : View
+    public function gallery()
     {
-        $images = Gallery::orderBy('order', 'asc')->get();
-        foreach ($images as $image) {
-            $image->path_lg = str_replace('s.jpg', '.jpg', $image->path);
-        }
+
+        $images = Gallery::query()->orderBy('order', 'asc')->get()->chunk(9);
 
         $page = PageService::getPageContent(6);
         $translates = DynamicTranlateService::getDynamicTranslates();
@@ -73,10 +71,7 @@ class PageController extends Controller
     }
     public function interior() : View
     {
-        $images = Interior::orderBy('order', 'asc')->get();
-        foreach ($images as $image) {
-            $image->path_sm = str_replace('.jpg', 's.jpg', $image->path);
-        }
+        $images = Interior::query()->orderBy('order', 'asc')->get()->chunk(9);
 
         $page = PageService::getPageContent(7);
         $translates = DynamicTranlateService::getDynamicTranslates();

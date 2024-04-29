@@ -5,20 +5,14 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Interior extends Model
+class GalleryRows extends Model
 {
     use HasFactory;
-    protected $table = 'interior';
 
     protected $fillable = [
-        'width',
-        'height',
+        'gallery_id',
         'path',
-        'order'
+        'height',
+        'width'
     ];
-
-    public function rows()
-    {
-        return $this->hasMany(InteriorRows::class);
-    }
 }

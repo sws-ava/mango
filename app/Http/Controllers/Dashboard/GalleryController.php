@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Actions\Gallery\CreateGalleryPreviewsCoverAction;
+use App\Actions\Gallery\CreateGalleryScaleAction;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Gallery;
 use Illuminate\Http\Request;
@@ -31,15 +33,26 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request['file']->store('/gallery', 'public');
+        foreach ($request['files'] as $file) {
+            [$width, $height] = getimagesize($file);
 
-        $countPhotos = Gallery::get();
-        $countPhotos = $countPhotos->count();
+            $photo = Gallery::query()->create([
+                'width' => $width,
+                'height' => $height,
+                'order' => Gallery::query()->get()->count() + 1,
+            ]);
 
-        $photo = new Gallery();
-        $photo->path = $path;
-        $photo->order = $countPhotos + 1;
-        $photo->save();
+            Storage::disk('public')->makeDirectory('/gallery/'.$photo->id);
+
+            $path = $file->store('/gallery/'.$photo->id.'/', 'public');
+
+            $photo->update([
+                $photo->path = $path
+            ]);
+
+            (new CreateGalleryScaleAction($photo))->handle();
+            (new CreateGalleryPreviewsCoverAction($photo))->handle();
+        }
 
         return redirect()->back();
     }

@@ -14,11 +14,12 @@
             <div class="form-group">
                 <label>Добавить фото</label>
                 <input
-                    name="file"
+                    name="files[]"
                     accept="image/*"
                     type="file"
                     class="form-control-file"
                     required
+                    multiple="multiple"
                 >
             </div>
             <button type="submit">Добавить фото</button>

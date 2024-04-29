@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Actions\Interior\CreateInteriorPreviewsCoverAction;
+use App\Actions\Interior\CreateInteriorScaleAction;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Interior;
+use App\Models\Admin\InteriorRows;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class InteriorController extends Controller
@@ -31,18 +35,30 @@ class InteriorController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request['file']->store('/interior', 'public');
+        foreach ($request['files'] as $file) {
+            [$width, $height] = getimagesize($file);
 
-        $countPhotos = Interior::get();
-        $countPhotos = $countPhotos->count();
+            $photo = Interior::query()->create([
+                'width' => $width,
+                'height' => $height,
+                'order' => Interior::query()->get()->count() + 1,
+            ]);
 
-        $photo = new Interior();
-        $photo->path = $path;
-        $photo->order = $countPhotos + 1;
-        $photo->save();
+            Storage::disk('public')->makeDirectory('/interior/'.$photo->id);
+
+            $path = $file->store('/interior/'.$photo->id.'/', 'public');
+
+            $photo->update([
+                $photo->path = $path
+            ]);
+
+            (new CreateInteriorScaleAction($photo))->handle();
+            (new CreateInteriorPreviewsCoverAction($photo))->handle();
+        }
 
         return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.
@@ -75,8 +91,19 @@ class InteriorController extends Controller
     {
         $photo = Interior::where('id', $id)->first();
         $photo->delete();
-        // remove file from server
+
+        // remove files from server
         Storage::disk('public')->delete($photo->path);
+
+        foreach (InteriorRows::query()->where('interior_id', $photo->id)->get() as $row){
+            Storage::disk('public')->delete($row->path);
+            $row->delete();
+        }
+
+        // remove folder
+        if (File::exists('storage/interior/'.$photo->id)) File::deleteDirectory('storage/interior/'.$photo->id);
+
+
         // reOrder photos
         $photos = Interior::orderBy('order', 'asc')->get();
         $i = 1;

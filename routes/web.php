@@ -22,6 +22,7 @@ use App\Http\Controllers\Dashboard\GoodsItemController as AdminGoodsItemControll
 
 
 use App\Models\Admin\Gallery;
+use App\Models\Admin\Interior;
 use App\Models\Admin\Page;
 use App\Models\Blocks;
 use Illuminate\Support\Facades\App;
@@ -45,6 +46,51 @@ use App\Models\Admin\GoodsCats;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//Route::get('/phpinfo', function () {
+//    phpinfo();
+//});
+
+
+//Route::get('/gal', function () {
+//    $gallery = Gallery::query()->get();
+//    foreach ($gallery as $q){
+//        $q->delete();
+//    }
+//
+//    for ($i = 1; $i < 60; $i++) {
+//        if(strlen($i) < 2){
+//            $path = 'gal/0'.$i.'.jpg';
+//            $pathS = 'gal/0'.$i.'-s.jpg';
+//        }else{
+//            $path = 'gal/'.$i.'.jpg';
+//            $pathS = 'gal/'.$i.'-s.jpg';
+//        }
+//        Gallery::query()->create([
+//            'path' => $path,
+//            'path_s' => $pathS,
+//            'order' => $i
+//        ]);
+//    }
+//
+//
+//
+//    $rowsToRemove = Gallery::query()->whereIn('order', ['10',20,30,40,50])->get();
+//
+//    foreach ($rowsToRemove as $r){
+//        $r->delete();
+//    }
+//
+//    $reorder = Gallery::query()->orderBy('order', 'asc')->get();
+//
+//    $j = 1;
+//    foreach ($reorder as $w){
+//        $w->update([
+//           'order' => $j
+//        ]);
+//        $j++;
+//    }
+//});
 
 //Route::get('/qwe', function () {
 //
