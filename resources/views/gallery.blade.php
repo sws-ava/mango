@@ -23,10 +23,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="285" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="285" height="285" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -36,10 +36,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="285" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="285" height="285" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -49,10 +49,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="285" src="{{'storage/'.$image->rows()->where('width', 456)->where('height', 336)->first()->path}}" alt=""/>
+                                                        <img width="285" height="285" src="{{asset('storage/'.$image->rows()->where('width', 456)->where('height', 336)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -62,10 +62,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="600" height="600" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="600" height="600" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -75,10 +75,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="600" height="600" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="600" height="600" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -88,10 +88,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="443" src="{{'storage/'.$image->rows()->where('width', 426)->where('height', 662)->first()->path}}" alt=""/>
+                                                        <img width="285" height="443" src="{{asset('storage/'.$image->rows()->where('width', 426)->where('height', 662)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -101,10 +101,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="443" src="{{'storage/'.$image->rows()->where('width', 426)->where('height', 662)->first()->path}}" alt=""/>
+                                                        <img width="285" height="443" src="{{asset('storage/'.$image->rows()->where('width', 426)->where('height', 662)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -114,10 +114,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="285" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="285" height="285" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
@@ -127,10 +127,10 @@
                                                     class="thumbnail-classic"
                                                     data-photo-swipe-item=""
                                                     data-size="{{$image->width}}x{{$image->height}}"
-                                                    href="{{'storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path}}"
+                                                    href="{{asset('storage/'.$image->rows()->where('width', 1)->where('height', 1)->first()->path)}}"
                                                 >
                                                     <figure>
-                                                        <img width="285" height="285" src="{{'storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path}}" alt=""/>
+                                                        <img width="285" height="285" src="{{asset('storage/'.$image->rows()->where('width', 460)->where('height', 460)->first()->path)}}" alt=""/>
                                                     </figure>
                                                 </a>
                                             </div>
