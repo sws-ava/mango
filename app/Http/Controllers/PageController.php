@@ -35,7 +35,6 @@ class PageController extends Controller
         $page = PageService::getPageContent(10);
         $paper_menu = PaperMenuRepository::getItemByLocale(App::getLocale());
         $translates = DynamicTranlateService::getDynamicTranslates();
-
         return view('menu', compact('translates', 'page', 'cats', 'paper_menu', 'catalog_settings'));
     }
     public function delivery() : View

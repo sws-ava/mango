@@ -1,9 +1,7 @@
 @extends('layout.main')
 
-{{--TODO--}}
 @section('title') Cart @endsection
 @section('description') Description @endsection
-@section('pageId'){{ $page->id }}@endsection
 
 
 @section('content')
@@ -23,13 +21,13 @@
                         {{ $translates['phone1']}}
 
                     </a>
-{{--                    <a--}}
-{{--                        href="tel:{{ $translates['phone2full']}}"--}}
-{{--                        class="text-base"--}}
-{{--                    >--}}
-{{--                        {{ $translates['phone2']}}--}}
+                    <a
+                        href="tel:{{ $translates['phone2full']}}"
+                        class="text-base"
+                    >
+                        {{ $translates['phone2']}}
 
-{{--                    </a>--}}
+                    </a>
                 </div>
                 <style>
                     .phone-holder{

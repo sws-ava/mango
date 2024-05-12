@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Actions\Goods\CreateGoodPreviewCoverAction;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\GoodImages;
 use App\Models\Admin\Goods;
 use App\Models\Admin\GoodsCats;
 use App\Models\Admin\GoodsItems;
 use App\Services\MenuService\MenuService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -56,9 +59,7 @@ class GoodsController extends Controller
         $item->save();
 
 
-//        $item = MenuService::getGoodItem($item->id);
         return redirect('/goods/'.$item->id.'/edit');
-//        return view('dashboard.menu.goods.edit', $item);
     }
 
     /**
@@ -92,6 +93,7 @@ class GoodsController extends Controller
         $item = Goods::find($id);
 
         if($request->file){
+
             if($item->picture){
                 Storage::disk('public')->delete($item->picture);
                 $item->picture = '';
@@ -110,12 +112,18 @@ class GoodsController extends Controller
 
         }
         $item->save();
+
+        if($request->file){
+            (new CreateGoodPreviewCoverAction($item, 640, 480))->handle();
+        }
         if($request->goodsItems){
             foreach ($request->goodsItems as $gItem) {
                 $gooItem = GoodsItems::find($gItem['id']);
                 foreach (LaravelLocalization::getSupportedLocales() as $locale => $supportedLocale) {
                     $title = 'title_'.$locale;
                     $gooItem[$title] = $gItem[$title];
+                    $desc = 'desc_'.$locale;
+                    $gooItem[$desc] = $gItem[$desc];
                 }
                 $gooItem->weight = $gItem['weight'];
                 $gooItem->weightKind = $gItem['weightKind'];
@@ -136,6 +144,15 @@ class GoodsController extends Controller
             $item->picture = '';
             $item->save();
         }
+
+
+        foreach (GoodImages::query()->where('good_id', $id)->get() as $img){
+            Storage::disk('public')->delete($img->path);
+            $img->delete();
+        }
+
+        // remove folder
+        if (File::exists('storage/goods/'.$id)) File::deleteDirectory('storage/goods/'.$id);
 
         return redirect()->back();
     }
@@ -191,8 +208,17 @@ class GoodsController extends Controller
             Storage::disk('public')->delete($good->picture);
         }
 
-        $good->delete();
 
+
+        foreach (GoodImages::query()->where('good_id', $id)->get() as $img){
+            Storage::disk('public')->delete($img->path);
+            $img->delete();
+        }
+
+        // remove folder
+        if (File::exists('storage/goods/'.$id)) File::deleteDirectory('storage/goods/'.$id);
+
+        $good->delete();
         $i=1;
         $goods = Goods::orderBy('order')->where('category', $good->category)->get();
         foreach ($goods as $item){

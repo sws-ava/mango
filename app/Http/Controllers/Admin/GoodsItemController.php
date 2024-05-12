@@ -34,6 +34,8 @@ class GoodsItemController extends Controller
         $newSubItem = new GoodsItems();
         $newSubItem->title_ru = $request->newSubItem['title_ru'];
         $newSubItem->title_ua = $request->newSubItem['title_ua'];
+        $newSubItem->desc_ru = $request->newSubItem['desc_ru'];
+        $newSubItem->desc_ua = $request->newSubItem['desc_ua'];
         $newSubItem->weight = $request->newSubItem['weight'];
         $newSubItem->weightKind = $request->newSubItem['weightKind'];
         $newSubItem->price = $request->newSubItem['price'];
@@ -46,6 +48,8 @@ class GoodsItemController extends Controller
         $editedSubItem = GoodsItems::where('id', $request->item['id'])->first();
         $editedSubItem->title_ru = $request->item['title_ru'];
         $editedSubItem->title_ua = $request->item['title_ua'];
+        $editedSubItem->desc_ru = $request->item['desc_ru'];
+        $editedSubItem->desc_ua = $request->item['desc_ua'];
         $editedSubItem->weight = $request->item['weight'];
         $editedSubItem->weightKind = $request->item['weightKind'];
         $editedSubItem->price = $request->item['price'];
@@ -131,9 +135,9 @@ class GoodsItemController extends Controller
     }
     public function addItem(Request $request){
 
-        // 
+        //
 
-        
+
         $countGoodsInCat = Goods::where('category', $request->item['category'])->get();
         $countGoodsInCat = $countGoodsInCat->count();
         // return $countGoodsInCat;
@@ -147,5 +151,5 @@ class GoodsItemController extends Controller
 
         return $item->id;
     }
-    
+
 }

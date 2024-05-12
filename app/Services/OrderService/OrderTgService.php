@@ -79,11 +79,11 @@ class OrderTgService
             if($item->full_title !== $item->title){
                 $textMessage .= $item->full_title;
             }
-            $textMessage .= ' '. $item->title.' '.$item->weight.' '.$item->amount.'ед '.' '.$item->price.' лв';
+            $textMessage .= ' '. $item->title.' '.$item->weight.' '.$item->amount.'ед '.' '.$item->price.' грн';
             $textMessage .= "\n";
         }
         $textMessage .= "\n";
-        $textMessage .= "Итого: ".$order->total.' лв';
+        $textMessage .= "Итого: ".$order->total.' грн';
         return $textMessage;
     }
 

@@ -21,8 +21,9 @@
             <a
                 href="{{route('category.show', $item->category)}}"
             >
-                К категории
+                К категории {{\App\Models\Admin\GoodsCats::query()->find($item->category)->title_ru ?? ''}}
             </a>
+
         </div>
         <div class="col-12 mb-2">
             <h5 class="mb-3">Блюдо "{{$item->title_ru}}"</h5>
@@ -86,17 +87,17 @@
                                             >
                                         </div>
                                     @endforeach
-                                    @foreach(LaravelLocalization::getSupportedLocales() as $locale => $value)
-                                        <div class="form-group col-6">
-                                            <small class="form-text text-muted">Описание блюда для сайта ру</small>
-                                            <input
-                                                name="desc_{{ $locale }}"
-                                                value="{{ $item['desc_'.$locale] }}"
-                                                type="text"
-                                                class="w-100 form-control priceInput"
-                                            >
-                                        </div>
-                                    @endforeach
+{{--                                    @foreach(LaravelLocalization::getSupportedLocales() as $locale => $value)--}}
+{{--                                        <div class="form-group col-6">--}}
+{{--                                            <small class="form-text text-muted">Описание блюда для сайта ру</small>--}}
+{{--                                            <input--}}
+{{--                                                name="desc_{{ $locale }}"--}}
+{{--                                                value="{{ $item['desc_'.$locale] }}"--}}
+{{--                                                type="text"--}}
+{{--                                                class="w-100 form-control priceInput"--}}
+{{--                                            >--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
                                     <div class="form-group col-6 mt-4">
                                         <div class="mt-2 controls-holder">
 
@@ -155,6 +156,18 @@
                                                                 >
                                                             </div>
                                                         @endforeach
+                                                        @foreach(LaravelLocalization::getSupportedLocales() as $locale => $value)
+
+                                                            <div class="form-group col-6">
+                                                                <small class="form-text text-muted">Описание <b>{{ $locale }}</b> </small>
+                                                                <input
+                                                                    name="goodsItems[{{$subitem->id}}][desc_{{ $locale }}]"
+                                                                    value="{{$subitem['desc_'.$locale] }}"
+                                                                    type="text"
+                                                                    class="w-100 form-control priceInput"
+                                                                >
+                                                            </div>
+                                                        @endforeach
                                                         <div class="form-group col-3">
                                                             <small class="form-text text-muted">Цена</small>
                                                             <input
@@ -168,7 +181,6 @@
                                                         <div class="form-group col-3">
                                                             <small class="form-text text-muted">Вес/шт/мл</small>
                                                             <input
-                                                                required
                                                                 name="goodsItems[{{$subitem->id}}][weightKind]"
                                                                 value="{{$subitem->weightKind}}"
                                                                 type="text"
@@ -178,7 +190,6 @@
                                                         <div class="form-group col-3">
                                                             <small class="form-text text-muted">Вес/шт/мл</small>
                                                             <input
-                                                                required
                                                                 name="goodsItems[{{$subitem->id}}][weight]"
                                                                 value="{{$subitem->weight}}"
                                                                 type="text"

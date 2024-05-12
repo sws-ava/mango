@@ -26,9 +26,11 @@ class MenuService
             $title = 'title_'.$locale;
             $description = 'description_'.$locale;
             $content = 'content_'.$locale;
+            $desc = 'desc_'.$locale;
 
             $item->title = $item[$title];
             $item->description = $item[$description];
+            $item->desc = $item[$desc];
             $item->content = $item[$content];
 
             $item->goods = self::getGoodsByCat($item->id);
@@ -60,7 +62,7 @@ class MenuService
         foreach ($items as $item) {
             $title = 'title_'.$locale;
             $description = 'description_'.$locale;
-            $desc = 'descr_'.$locale;
+            $desc = 'desc_'.$locale;
 
             $item->title = $item[$title];
             $item->description = $item[$description];
@@ -75,9 +77,11 @@ class MenuService
     {
         $locale = App::getLocale();
         $items = GoodsItems::orderBy('order', 'asc')->where('item', $goodId)->get();
+        $title = 'title_'.$locale;
+        $desc = 'desc_'.$locale;
         foreach ($items as $item) {
-            $title = 'title_'.$locale;
             $item->title = $item[$title];
+            $item->desc = $item[$desc];
         }
         return $items;
     }

@@ -57,7 +57,7 @@
                 <div class="form-group col-lg-3">
                     <div class="option-title">Сумма:</div>
                     <div class="option-text ">
-                        <span class="orderTotalTop"> {{ $order->total }} </span>лв
+                        <span class="orderTotalTop"> {{ $order->total }} </span>грн
                     </div>
                 </div>
                 <div v-if="order.address" class="mb-2 col-lg-6 form-group ">
@@ -117,7 +117,7 @@
                     {{ $item->title }} {{ $item->weight }}
                 </div>
                 <div class="col-lg-2 text-right">
-                    {{ $item->price }} лв
+                    {{ $item->price }} грн
                 </div>
                 <div class="col-lg plus-minus-holder">
 {{--                    <div class="plus-minus">--}}
@@ -143,7 +143,7 @@
 {{--                    </div>--}}
                 </div>
                 <div class="col-lg text-right">
-                    {{ $item->price * $item->amount }} лв
+                    {{ $item->price * $item->amount }} грн
 
                     <span
                         @click="showRemoveOrderItemModal(item)"
@@ -160,7 +160,7 @@
         </div>
         <hr class="mb-1 mt-2 mb-4" />
         <div class="row text-right mt-4 mb-4">
-            <div class="offset-lg-7 col-lg-5">Сумма: <span class="orderTotal"> {{ $order->total }} </span> лв</div>
+            <div class="offset-lg-7 col-lg-5">Сумма: <span class="orderTotal"> {{ $order->total }} </span> грн</div>
         </div>
         <div class="d-flex justify-content-between col-12">
 {{--            <div class="form-group mt-2">--}}

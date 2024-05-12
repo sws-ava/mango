@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="option-title">Сумма:</div>
-                        <div class="option-text"> {{ $order->total }} лв</div>
+                        <div class="option-text"> {{ $order->total }} грн</div>
                     </div>
                     <div v-if="order.address" class="mb-2 col-lg-6">
                         <span class="option-title">Адрес:</span>

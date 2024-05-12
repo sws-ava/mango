@@ -5,17 +5,15 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GoodsCats extends Model
+class GoodImages extends Model
 {
     use HasFactory;
-    protected $table = 'goods_cats';
 
+    protected $table = 'goods_images';
     protected $fillable = [
-        'title_ru',
-        'title_ua',
-        'description_ru',
-        'description_ua',
-        'show',
-        'order'
+        'good_id',
+        'path',
+        'height',
+        'width'
     ];
 }

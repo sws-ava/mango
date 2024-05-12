@@ -16,7 +16,7 @@
                 </h2>
                 <div id="checkoutList" class="cartItems">
                     <div class="cartSum">
-                        @lang('static.orderSum') <span id="cartSum"></span> лв
+                        @lang('static.orderSum') <span id="cartSum"></span> грн
                     </div>
                 </div>
                 <div

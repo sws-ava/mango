@@ -34,8 +34,9 @@ class GoodsItemController extends Controller
 
         foreach (LaravelLocalization::getSupportedLocales() as $locale => $supportedLocale) {
             $title = 'title_'.$locale;
-
             $item[$title] = $request[$title];
+            $desc = 'desc_'.$locale;
+            $item[$desc] = $request[$desc];
         }
 
         $item->item = $request->item;
