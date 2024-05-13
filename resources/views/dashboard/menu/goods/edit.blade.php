@@ -337,7 +337,6 @@
                         type="text"
                         class="w-100 form-control"
                         name="weight"
-                        required
                     >
                 </div>
                 <div class="form-group col-lg">
@@ -346,7 +345,6 @@
                         type="text"
                         class="w-100 form-control"
                         name="weightKind"
-                        required
                     >
                 </div>
             </div>

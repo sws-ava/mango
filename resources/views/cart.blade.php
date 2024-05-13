@@ -7,8 +7,9 @@
 
 @section('content')
 
+<section class="context-dark" style="background-color: #000000; padding-top: 50px; padding-bottom: 50px;">
     <div class="mb200">
-        <form id="orderForm" action="{{ route('order.create') }}"  method="POST" style="display: none">
+        <form class="mb-0" id="orderForm" action="{{ route('order.create') }}"  method="POST" style="display: none; margin-block-end: 0px">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="shell">
                 <h2 class="text-center" style="margin-bottom: 50px;">
@@ -80,6 +81,7 @@
                                 value="1"
                                 min="1"
                                 class="form-control"
+                                style="color: #fff"
                             >
                             <style>
                                 .stepper-arrow.up,
@@ -144,6 +146,7 @@
             </div>
         </div>
     </div>
+</section>
     <script>
         let cartBlock = document.querySelector('.cartBlock')
         cartBlock.style.opacity = 0;
@@ -152,6 +155,10 @@
 
     </script>
     <style>
+        .form-control{
+            color: #fff;
+        }
+
         .cartForm {
             justify-content: center;
         }

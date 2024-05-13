@@ -6,6 +6,7 @@
 
 @section('content')
 
+<section class="context-dark" style="background-color: #000000; padding-top: 50px; padding-bottom: 50px;">
     <div class="mb200">
         <div id="orderDone">
             <div class="" style="margin-top: 50px; margin-bottom: 50px; padding-left: 10px;padding-right: 10px;">
@@ -45,6 +46,7 @@
             </div>
         </div>
     </div>
+</section>
     <style>
         .cartForm {
             justify-content: center;
