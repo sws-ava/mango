@@ -50,6 +50,7 @@
                                 name="phone"
                                 type="text"
                                 class="form-control"
+                                required
                             >
                         </div>
                         <div class="cell-sm-12 cell-md-6">
@@ -107,6 +108,7 @@
                                 cols="30"
                                 rows="10"
                                 class="form-control"
+                                required
                             ></textarea>
                         </div>
                     </div>

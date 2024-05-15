@@ -17,7 +17,7 @@
     @php
         $time = \Carbon\Carbon::now();
         $morning = \Carbon\Carbon::create($time->year, $time->month, $time->day, 10, 0, 0); //set time to 08:00
-        $evening = \Carbon\Carbon::create($time->year, $time->month, $time->day, 20, 30, 0); //set time to 18:00
+        $evening = \Carbon\Carbon::create($time->year, $time->month, $time->day, 21, 30, 0); //set time to 21:30
     @endphp
 
     <section class="context-dark" style="background-color: #000000">
